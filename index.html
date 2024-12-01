@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Turbo - La app que te indica la ruta, ubicación y tiempo de llegada de los autobuses en tiempo real.">
+    <title>Turbo - Transporte Público en Tiempo Real</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f4f9ff;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(90deg, #004aad, #007bff);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            font-size: 2.2em;
+            color: #004aad;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        section img {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #004aad;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Turbo</h1>
+        <p>La app que revoluciona el transporte público</p>
+    </header>
+
+    <!-- Descripción general -->
+    <section id="intro">
+        <h2>Tu Compañero de Viaje</h2>
+        <p>Turbo es tu solución confiable para navegar por el transporte público de tu ciudad. Con herramientas innovadoras y datos en tiempo real, hacemos que cada trayecto sea más fácil y eficiente.</p>
+        <img src="turbologo.jpeg" alt="Vista previa de Turbo">
+    </section>
+
+    <!-- Característica 1 -->
+    <section id="rutas">
+        <h2>Rutas Detalladas</h2>
+        <p>Encuentra de manera sencilla las rutas que necesitas. Turbo te proporciona un desglose visual claro y detallado de las líneas de autobuses, para que siempre sepas qué camino tomar.</p>
+        <img src="rutas.png" alt="Rutas detalladas">
+    </section>
+
+    <!-- Característica 2 -->
+    <section id="ubicacion">
+        <h2>Ubicación en Tiempo Real</h2>
+        <p>Visualiza en tiempo real dónde se encuentran los autobuses en tu ciudad. La precisión de Turbo garantiza que siempre tengas la información más actualizada, para que nunca pierdas tu viaje.</p>
+        <img src="ubicacion.png" alt="Ubicación en tiempo real">
+    </section>
+
+    <!-- Característica 3 -->
+    <section id="tiempo">
+        <h2>Tiempo Estimado de Llegada</h2>
+        <p>No más incertidumbre en la parada. Turbo calcula cuánto tiempo falta para que tu autobús llegue, asegurándose de que aproveches al máximo tu tiempo.</p>
+        <img src="tiempo.png" alt="Tiempo estimado">
+    </section>
+
+    <!-- Característica 4 -->
+    <section id="alertas">
+        <h2>Notificaciones en Vivo</h2>
+        <p>Recibe alertas instantáneas sobre cambios en las rutas, retrasos o interrupciones. Con Turbo, siempre estarás informado y preparado para cualquier eventualidad.</p>
+        <img src="alertas.png" alt="Notificaciones en vivo">
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Turbo - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Animaciones al desplazamiento
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
+
